@@ -24,4 +24,6 @@ export class Order {
   quantity: number;
   date: Date;
   contact: string;
+  email: string;
+  MDP: string;
 }

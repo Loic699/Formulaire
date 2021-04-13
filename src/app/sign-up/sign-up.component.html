@@ -14,6 +14,28 @@
       <span *ngIf="title.errors?.minlength">La longueur minimale doit être supérieure à 5</span>
       <span *ngIf="title.errors?.maxlength">La longueur maximale doit être inférieure à 30</span>
     </div>
+    
+    <div>
+        <label for="email-order">Email</label>
+        <input name="email-order" type="email" [(ngModel)]="model.email" #email="ngModel" required minlength="3" maxlength="15"/>
+      </div>
+      <!-- Message d'erreurs -->
+      <div *ngIf="email.errors">
+        <span *ngIf="email.errors?.required">L'email est requis</span>
+        <span *ngIf="email.errors?.minlength">La longueur minimale doit être supérieure à 3</span>
+        <span *ngIf="email.errors?.maxlength">La longueur maximale doit être inférieure à 15</span>
+        <span *ngIf="email.errors?.email">Tu n'utilise pas la bonne conception d'un mail</span>
+      </div>
+      <div>
+        <label for="MDP">Mot de passe</label>
+        <input name="MDP" type="text" [(ngModel)]="model.MDP" #MDP="ngModel" required minlength="6" >
+        <span *ngIf="MDP.errors?.minlength">La longueur minimale doit être supérieure à 6</span>
+      </div>
+      <div *ngIf="MDP.errors">
+        <span *ngIf="MDP.errors?.required">Le mot de passe est requis</span>
+      </div>
+
+
     <div>
       <label for="quantity">Quantité</label>
       <input name="quantity" type="quantity" [(ngModel)]="model.quantity" #quantity="ngModel" required>
@@ -26,17 +48,11 @@
       <input name="date-order" type="date" [(ngModel)]="model.date" #date="ngModel" required>
     </div>
     <div *ngIf="date.errors">
-      <span *ngIf="date.errors?.required">Le champ email est requis</span>
+      <span *ngIf="date.errors?.required">Le champ de date est requis</span>
     </div>
-    <div>
-      <label for="contact-order">Contact</label>
-      <input name="contact-order" type="email" [(ngModel)]="model.contact" #contact="ngModel" required email>
-    </div>
-    <div *ngIf="contact.errors">
-      <span *ngIf="contact.errors?.required">Le champ email est requis</span>
-      <span *ngIf="contact.errors?.email">L'adresse email doit être valide</span>
-    </div>
+   <div>
     <button type="reset">Restaurer</button>
     <button type="submit">Sauvegarder</button>
+</div>
   </form>
   
